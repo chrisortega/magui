@@ -1,0 +1,2 @@
+# magui
+formagnetes ci/cd
