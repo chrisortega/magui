@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PubsubService } from '../pubsub.service';
+import { TorrentsService } from '../torrents.service';
 
 
 @Component({
@@ -9,14 +10,13 @@ import { PubsubService } from '../pubsub.service';
 })
 export class HomeComponent implements OnInit {
   magneturl:string = ""
+  movies:[] = []
+  constructor(private pubsub:PubsubService,private torrents:TorrentsService) { }
 
-  constructor(private pubsub:PubsubService) { }
-
-  sendMagnet(){
-    
-    this.pubsub.cloud_publisher_function(this.magneturl)
-
+  sendMagnet(){    
+    this.pubsub.cloud_publisher_function(this.magneturl)  
   }
+  
   ngOnInit(): void {
   }
 
